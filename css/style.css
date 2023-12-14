@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+header > div{
+    padding:20px;
+}
+
+.cella{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7fffd4 ;
+    border: 1px solid black;
+}
+
+.active{
+
+    background-color: blue;
+
+}
+.container > .cella.cell-100{
+    width: 100px;
+    height: 100px;
+
+}
+.container > .cella.cell-81{
+    width: calc(1000px / 9);
+    height: calc(1000px / 9);
+}
+.container > .cella.cell-49{
+    width: calc(1000px / 7);
+    height: calc(1000px / 7);
+}
