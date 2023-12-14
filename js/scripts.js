@@ -9,6 +9,8 @@ console.log(grid);
 
 
 
+
+
 // creo un evento al click che mi aggiunge 100 celle con i numeri  da 1 a 100
 bPlay.addEventListener('click', function(){
         let difficoltà = parseInt(document.getElementById('difficoltà').value);
@@ -17,7 +19,7 @@ bPlay.addEventListener('click', function(){
 
         const randombomb = [];
 
-        for (let i = 0; i < 16; i++) {
+        for (let j = 0; j < 16; j++) {
             // Genero un numero casuale
             let bomb = generateRandomNumber(1, difficoltà);
             console.log(bomb);
@@ -32,38 +34,45 @@ bPlay.addEventListener('click', function(){
         
             randombomb.push(bomb);
             
-            console.log(randombomb);
+            
         }
-        
+
         console.log(randombomb);
+        
 
         
         //creo un ciclo definito per avere dei numeri da 1 a 100
         for(i = 1; i <= difficoltà; i++){
-        //creo un tag e lo metto in una variabile
-        let cella = document.createElement('div');
-        //al tag dellA VARIABILE  aggiungo una classe 
-        cella.classList.add('cella', 'cell-' + difficoltà);
-        //cosi aggiungo dentro le celle i numeri che mi escono 
-        cella.append(i);
 
-        cella.addEventListener('click', function(){
-            //con questo comando sto dicendo di prendere il tag della variabile cella e aggiungi la classe active come un interrutore
+            //creo un tag e lo metto in una variabile
+            let cella = document.createElement('div');
+            //al tag dellA VARIABILE  aggiungo una classe 
+            cella.classList.add('cella', 'cell-' + difficoltà);
+            //cosi aggiungo dentro le celle i numeri che mi escono 
+            cella.append(i);
             
-            if(i === randombomb[0]){
-                this.classList.add('bomb')
-            }
-            else{this.classList.add('active');
-            console.log(this.innerHTML);
-            }
-        });
-        //qui appendo cioè stampo nel container 
-        grid.append(cella);
-
+            
+            //qui appendo cioè stampo nel container 
+            grid.append(cella);
+            
+                
+            cella.addEventListener('click', function(){
+                //con questo comando sto dicendo di prendere il tag della variabile cella e aggiungi la classe active come un interrutore
+                if(randombomb.includes(i)){
+                
+                this.classList.add('bomb');
+                console.log(cella);
+                
+                
+                }
+                else{
+                    this.classList.add('active');
+                }
+                console.log(this.innerHTML);
+            });
+                
         }
 
-
-    
 });
 
 
@@ -75,3 +84,5 @@ function generateRandomNumber(min, max) {
     
     return randNum;
 }
+
+
