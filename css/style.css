@@ -39,6 +39,9 @@ header > div{
     background-color: blue;
 
 }
+.bomb{
+    background-color: red;
+}
 .container > .cella.cell-100{
     width: 100px;
     height: 100px;
