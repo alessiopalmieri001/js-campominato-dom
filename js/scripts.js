@@ -50,6 +50,14 @@ bPlay.addEventListener('click', function(){
             cella.classList.add('cella', 'cell-' + difficoltà);
             //cosi aggiungo dentro le celle i numeri che mi escono 
             cella.append(i);
+
+            console.log('i', i);
+
+            if(randombomb.includes(i)){
+                
+                cella.classList.add('is-bomb');
+            
+            }
             
             
             //qui appendo cioè stampo nel container 
@@ -58,12 +66,15 @@ bPlay.addEventListener('click', function(){
                 
             cella.addEventListener('click', function(){
                 //con questo comando sto dicendo di prendere il tag della variabile cella e aggiungi la classe active come un interrutore
-                if(randombomb.includes(i)){
-                
-                this.classList.add('bomb');
-                console.log(cella);
-                
-                
+                console.log('randombomb', randombomb)
+                console.log('i', i)
+                console.log('randombomb.includes(i): ', randombomb.includes(i))
+
+                if(this.classList.contains('is-bomb')){
+                    this.classList.add('bomb');
+                    console.log(this);
+                    alert('hai perso');
+                    //grid.innerHTML = '';
                 }
                 else{
                     this.classList.add('active');
