@@ -55,3 +55,16 @@ header > div{
     width: calc(1000px / 7);
     height: calc(1000px / 7);
 }
+
+h2,
+h2 > div{
+    text-align: center;
+}
+
+.ciao{
+    font-size: 2rem;
+}
+
+h2 > div {
+    font-size: 1.5rem;
+}

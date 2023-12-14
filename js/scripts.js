@@ -5,7 +5,7 @@ console.log(bPlay);
 const grid = document.querySelector('.container');
 console.log(grid);
 
-
+let punteggio = 0;
 
 
 
@@ -69,22 +69,30 @@ bPlay.addEventListener('click', function(){
                 console.log('randombomb', randombomb)
                 console.log('i', i)
                 console.log('randombomb.includes(i): ', randombomb.includes(i))
-
-                if(this.classList.contains('is-bomb')){
+                
+                if(!this.classList.contains('is-bomb')){
+                    this.classList.add('active');
+                    punteggio++;
+                }
+                else{
                     this.classList.add('bomb');
                     console.log(this);
                     alert('hai perso');
-                    //grid.innerHTML = '';
+                    setTimeout(() => {grid.innerHTML=`  <h2 class="ciao">HAI PERSO</h2>
+                                                        <div>
+                                                            Il tuo punteggio è : ${punteggio}
+                                                        </div>
+                                                    `;}, 2000);
+
                 }
-                else{
-                    this.classList.add('active');
-                }
+                console.log('punteggio', punteggio);
                 console.log(this.innerHTML);
             });
-                
         }
 
 });
+
+
 
 
 
